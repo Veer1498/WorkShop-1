@@ -1,6 +1,5 @@
 package workshop1;
-import java.io.*;
-import java.lang.*;
+
 
 public class Gambler {
 	/**
@@ -22,7 +21,7 @@ public class Gambler {
 		 * 
 		 */
 		double stake = 100;
-		double bet = 1;
+		int bet = 1;
 		for (int day=1; day<=20;day++) {
 			int  gain = (int)(stake + (stake/2));
 			int  loss = (int)(stake - (stake/2));
