@@ -1,4 +1,6 @@
 package workshop1;
+import java.io.*;
+import java.lang.*;
 
 public class Gambler {
 	/**
@@ -12,8 +14,10 @@ public class Gambler {
 		 * The currency is in Dollars ($)
 		 * Created an IF Condition for probability.
 		 * If random more than 1 it add up to stake, less than 1 it subtracts form stake.
+		 * Created a FOR loop to check for a N number of Days.
+		 * Created 2 variables gain and loss to add or sub stake value for iteration.
 		 * Created a WHILE loop and inserted all If Condition in That.
-		 * Created another IF condition to break the stake value at either 150 or 50.
+		 * Created another IF condition to break the stake value at either gain or loss a 50%.
 		 * 
 		 * 
 		 */
