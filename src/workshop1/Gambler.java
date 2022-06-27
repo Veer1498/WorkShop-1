@@ -14,7 +14,16 @@ public class Gambler {
 		 */
 		int stake = 100;
 		int bet = 1;
-
+		int random = (int) Math.floor((Math.random()*2)+1);
+		System.out.println(random);
+		boolean winOrLoss = false;
+		if (random>1) {
+			stake = stake + bet;
+		}
+		else {
+			stake = stake - bet;
+		}
+		System.out.println("The stake Value after 1 Game = $ "+stake);
 	}
 
 }
