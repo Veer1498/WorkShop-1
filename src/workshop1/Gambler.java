@@ -20,12 +20,11 @@ public class Gambler {
 		double stake = 100;
 		double bet = 1;
 		for (int day=1; day<=20;day++) {
-			double  gain = stake + (stake/2);
-			double  loss = stake - (stake/2);
-
+			int  gain = (int)(stake + (stake/2));
+			int  loss = (int)(stake - (stake/2));
 			while(stake != 0) {
-				int random = (int) Math.floor((Math.random()*2)+1);
-				if (random>1) {
+				double random =  Math.floor((Math.random()*10)%2);
+				if (random<1) {
 					stake = stake + bet;
 					if (stake == (gain) || stake == loss) {
 						break;
