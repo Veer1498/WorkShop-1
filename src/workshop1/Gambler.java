@@ -157,6 +157,13 @@ public class Gambler {
 		}
 		System.out.println("");
 		System.out.println("The Luckiest Day is "+luckDay+" Amount is "+isLucky);
-		System.out.println("The UnLuckiest Day is "+unLuckDay+" Amount is "+isUnLucky);			
+		System.out.println("");
+		System.out.println("The UnLuckiest Day is "+unLuckDay+" Amount is "+isUnLucky);
+		System.out.println("");
+		if (stake>0) {
+			System.out.println("Gambler Won The Amont, Lets Continue");
+		}
+		else
+			System.out.println("Gambler Lost Amount, Lets Quit");
 	}
 }
