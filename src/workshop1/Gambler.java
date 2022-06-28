@@ -8,7 +8,7 @@ public class Gambler {
 	 * 
 	 * @param args
 	 */
-
+	public static double isLucky,isUnLucky;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*Created Class Gambler and taken variables stake and bet with values.
@@ -23,6 +23,10 @@ public class Gambler {
 		 * All monthDays were assigned to months.
 		 * Created a Switch case for selecting each monthDays and monthName.
 		 * In FOR loop the days were proportional to monthDays.
+		 * Created other new variables lucky,nLucky,LuckDay,UnLuckDay.
+		 * Created two public Variables isLucky,isUnLucky.
+		 * Created another IF condition for storing max or min value of stake won.
+		 * Printing the max gain or max loss of the whole Month
 		 * 
 		 */
 		System.out.println("Welcome to the Gambler Simulation");
@@ -30,6 +34,11 @@ public class Gambler {
 		double stake = 100;
 		int bet = 1;
 		int monthDays=0;
+		double lucky=0;
+		double unLucky=0;
+		int luckDay =0;
+		int unLuckDay=0;
+		int day;
 		String monthName= new String();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please Enter Month. Ex:For January enter = 1");
@@ -89,8 +98,10 @@ public class Gambler {
 			}
 			System.out.println("The Month of " + monthName);
 			System.out.println("");
-
-		for (int day=1; day<=monthDays;day++) {
+			
+		for (day=1; day<=monthDays;day++) {
+			lucky = stake;
+			unLucky = stake;
 			int  gain = (int)(stake + (stake/2));
 			int  loss = (int)(stake - (stake/2));
 			while(stake != 0) {
@@ -98,18 +109,56 @@ public class Gambler {
 				if (random<1) {
 					stake = stake + bet;
 					if (stake == (gain) || stake == loss) {
+						if(stake>lucky) {
+							lucky = stake;
+							if(isLucky<lucky) {
+							isLucky = lucky;
+							luckDay = day;
+							}
+							isLucky = lucky;
+							break;
+						}
+						else if(stake !=0 && stake<unLucky) {
+							unLucky = stake;
+							if(isUnLucky>unLucky) {
+							isUnLucky = unLucky;
+							unLuckDay= day;
+							}
+							isUnLucky = unLucky;
+							break;
+						}
 						break;
 					}
 				}
 				else {
 					stake = stake - bet;
 					if (stake == (gain) || stake == loss) {
+						if(stake>lucky) {
+							lucky = stake;
+							if(isLucky<lucky) {
+							isLucky = lucky;
+							luckDay = day;
+							}
+							isLucky = lucky;
+							break;
+						}
+						else if(stake !=0 && stake<unLucky) {
+							unLucky = stake;
+							if (isUnLucky>unLucky) {
+							isUnLucky = unLucky;
+							unLuckDay = day;
+							}
+							isUnLucky = unLucky;
+							break;
+						}
 						break;
 					}
 				}
 			}
 			System.out.println("The stake Value after "+day+" Day = $ "+stake);
 		}
+		
+		System.out.println("The Luckiest Day is"+luckDay+"Amount is "+isLucky);
+		System.out.println("The Un Luckiest Day is"+unLuckDay+"Amount is "+isUnLucky);			
 	}
-
 }
