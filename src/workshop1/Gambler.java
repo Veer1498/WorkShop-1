@@ -35,7 +35,7 @@ public class Gambler {
 		int bet = 1;
 		int monthDays=0;
 		double lucky=0;
-		double unLucky=0;
+		double unLucky=stake;
 		int luckDay =0;
 		int unLuckDay=0;
 		int day;
@@ -100,14 +100,12 @@ public class Gambler {
 			System.out.println("");
 			
 		for (day=1; day<=monthDays;day++) {
-			lucky = stake;
-			unLucky = stake;
 			int  gain = (int)(stake + (stake/2));
 			int  loss = (int)(stake - (stake/2));
 			while(stake != 0) {
 				double random =  Math.floor((Math.random()*10)%2);
 				if (random<1) {
-					stake = stake + bet;
+					stake += bet;
 					if (stake == (gain) || stake == loss) {
 						if(stake>lucky) {
 							lucky = stake;
@@ -117,21 +115,21 @@ public class Gambler {
 							}
 							isLucky = lucky;
 							break;
-						}
-						else if(stake !=0 && stake<unLucky) {
+						  }
+						if(stake<unLucky) {
 							unLucky = stake;
 							if(isUnLucky>unLucky) {
 							isUnLucky = unLucky;
-							unLuckDay= day;
+							unLuckDay = day;
 							}
 							isUnLucky = unLucky;
 							break;
-						}
+						 }
 						break;
 					}
 				}
 				else {
-					stake = stake - bet;
+					stake -= bet;
 					if (stake == (gain) || stake == loss) {
 						if(stake>lucky) {
 							lucky = stake;
@@ -142,7 +140,7 @@ public class Gambler {
 							isLucky = lucky;
 							break;
 						}
-						else if(stake !=0 && stake<unLucky) {
+						if(stake!=0 && stake<unLucky) {
 							unLucky = stake;
 							if (isUnLucky>unLucky) {
 							isUnLucky = unLucky;
@@ -157,8 +155,8 @@ public class Gambler {
 			}
 			System.out.println("The stake Value after "+day+" Day = $ "+stake);
 		}
-		
-		System.out.println("The Luckiest Day is"+luckDay+"Amount is "+isLucky);
-		System.out.println("The Un Luckiest Day is"+unLuckDay+"Amount is "+isUnLucky);			
+		System.out.println("");
+		System.out.println("The Luckiest Day is "+luckDay+" Amount is "+isLucky);
+		System.out.println("The UnLuckiest Day is "+unLuckDay+" Amount is "+isUnLucky);			
 	}
 }
